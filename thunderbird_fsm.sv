@@ -11,7 +11,6 @@ output logic seven_seg[7:0]
 //seven_seg[7:0] = [a b c d e f g dp]
 );
 
-
 //PRIORITY HANDLING: brake > hazard > turn signals
 //  Finite State Machine (Moore FSM) for controlling the lights based on input signals
 typedef enum logic [2:0] { //2:0 because we have 5 states, we need at least 3 bits to encode them
