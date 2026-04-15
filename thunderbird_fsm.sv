@@ -8,7 +8,13 @@ output logic lights[5:0], //lights[5:0] = [L3 L2 L1 R1 R2 R3]
 output logic seven_seg[7:0] 
 //seven_seg[7:0] = [a b c d e f g dp]
 );
-
+    // lights[5:0] mapping:
+    // [5] = LA
+    // [4] = LB
+    // [3] = LC
+    // [2] = RA
+    // [1] = RB
+    // [0] = RC
 
 //PRIORITY HANDLING: brake > hazard > turn signals
     typedef enum logic [1:0] {
