@@ -1,8 +1,10 @@
 module thunderbird_fsm (
+input logic clk,
 input logic reset,   //all lights OFF
-input logic left,    //Activates left turn signal
-input logic right,   //Activates right turn signal
+input logic left,    //Activates left turn signal (flashing L1, L2, L3 as a wave)
+input logic right,   //Activates right turn signal (flashing R1, R2, R3 as a wave)
 input logic brake,   //Activates brake lights (all lights ON)
+input logic hazard   //Activates hazard lights (all lights ON and flashing)
 
 output logic lights[5:0], //lights[5:0] = [L3 L2 L1 R1 R2 R3]
 output logic seven_seg[7:0] 
@@ -11,31 +13,32 @@ output logic seven_seg[7:0]
 
 
 //PRIORITY HANDLING: brake > hazard > turn signals
-    typedef enum logic [1:0] {
-        S0, S1, S2, S3
-    } state_t;
+//  Finite State Machine (Moore FSM) for controlling the lights based on input signals
+typedef enum logic [2:0] { //2:0 because we have 5 states, we need at least 3 bits to encode them
+    BRAKE_ON,   // Brake signal active (overrides all)
+    HAZARD_ON,  // Both turn signals active (hazard)
+    LEFT_ON,    // Left turn signal active
+    RIGHT_ON,   // Right turn signal active
+    IDLE       // No signals active
+} state_t;
 
-    state_t current_state, next_state;
+state_t current_state, next_state;
 
-    always_ff @(posedge clk or posedge rst) begin
-        if (rst)
-            current_state <= S0;
-        else if (btn_pulse)
-            current_state <= next_state;
+// State transition logic
+always_ff @(posedge reset or posedge left or posedge right or posedge brake) begin
+    if (reset) begin
+        current_state <= IDLE;
+    end else if (brake) begin
+        current_state <= BRAKE_ON;
+    end else if (left && right) begin
+        current_state <= HAZARD_ON;
+    end else if (left) begin
+        current_state <= LEFT_ON;
+    end else if (right) begin
+        current_state <= RIGHT_ON;
+    end else begin
+        current_state <= IDLE;
     end
-
-    always_comb begin
-        case (current_state)
-            S0: next_state = (din == 0) ? S1 : S0;
-            S1: next_state = (din == 1) ? S2 : S1;
-            S2: next_state = (din == 1) ? S3 : S1;
-            S3: next_state = (din == 0) ? S1 : S0;
-            default: next_state = S0;
-        endcase
-    end
-
-    assign detected = (current_state == S3);
-
 
 
 endmodule
