@@ -21,12 +21,13 @@ set_property PACKAGE_PIN U12 [get_ports {btn[0]}]; # Left Turn Signal
 set_property PACKAGE_PIN V12 [get_ports {btn[1]}]; # Right Turn Signal
 set_property PACKAGE_PIN U7 [get_ports {btn[2]}]; # Brake
 set_property PACKAGE_PIN Y6 [get_ports {btn[3]}]; # Hazard
+set_property PACKAGE_PIN PSPORB [get_ports {btn[6]}]; # Reset
 set_property IOSTANDARD LVCMOS33 [get_ports {btn[*]}]
 
 ## Seven Segment Display
 #   Bus order: ssegout[7:0] = [a b c d e f g dp]
 #
-set_property PACKAGE_PIN J20 [get_ports {sseg_an[3]}];     
+set_property PACKAGE_PIN J20 [get_ports {sseg_an[3]}];     S
 set_property PACKAGE_PIN J18 [get_ports {sseg_an[2]}];
 set_property PACKAGE_PIN H20 [get_ports {sseg_an[1]}];
 set_property PACKAGE_PIN K19 [get_ports {sseg_an[0]}];

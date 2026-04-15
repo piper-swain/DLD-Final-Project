@@ -13,9 +13,12 @@ output logic seven_seg[7:0]
 
 //PRIORITY HANDLING: brake > hazard > turn signals
 //  Finite State Machine (Moore FSM) for controlling the lights based on input signals
-typedef enum logic [2:0] { //2:0 because we have 5 states, we need at least 3 bits to encode them
+typedef enum logic [3:0] { 
     BRAKE_ON,   // Brake signal active (overrides all)
-    HAZARD_ON,  // Both turn signals active (hazard)
+    
+    HAZARD_S1,  // L1 R1 ON
+    HAZARD_S2,  // L1 R1 L2 R2 ON
+    HAZARD_S3,  // L1 R1 L2 R2 L3 R3 ON
     
     // Left turn signal active
     LEFT_S1, // L1 ON
