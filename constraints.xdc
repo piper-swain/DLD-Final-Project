@@ -20,8 +20,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led[*]}]
 set_property PACKAGE_PIN U12 [get_ports {btn[0]}]; # Left Turn Signal
 set_property PACKAGE_PIN V12 [get_ports {btn[1]}]; # Right Turn Signal
 set_property PACKAGE_PIN U7 [get_ports {btn[2]}]; # Brake
-set_property PACKAGE_PIN Y6 [get_ports {btn[3]}]; # Hazard
-set_property PACKAGE_PIN PSPORB [get_ports {btn[6]}]; # Reset
+set_property PACKAGE_PIN Y6 [get_ports {btn[3]}]; # Reset
 set_property IOSTANDARD LVCMOS33 [get_ports {btn[*]}]
 
 ## Seven Segment Display
