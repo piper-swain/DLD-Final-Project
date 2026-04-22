@@ -64,13 +64,13 @@ always_comb begin
             lights = 6'b111111; // L1 L2 L3 R1 R2 R3 ON
             seven_seg = 8'b00000000; //Display "b" for brake (all segments ON)
             if (brake)
-                next_state = BRAKE;
+                next_state = BRAKE_ON; //Stay in BRAKE_ON state as long as brake is active
             else if (left && right)
-                next_state = HAZ1;
+                next_state = HAZARD_S1;
             else if (left)
-                next_state = LEFT1;
+                next_state = LEFT_S1;
             else if (right)
-                next_state = RIGHT1;
+                next_state = RIGHT_R1;
             else
                 next_state = IDLE;
             end
@@ -98,13 +98,13 @@ always_comb begin
             lights = 6'b111111; // L1 L2 L3 R1 R2 R3 ON
             seven_seg = 8'b0110111; //Display "H" for hazard
             if (brake)
-                next_state = BRAKE;
+                next_state = BRAKE_ON;
             else if (left && right)
-                next_state = HAZ1;
+                next_state = HAZARD_S1;
             else if (left)
-                next_state = LEFT1;
+                next_state = LEFT_S1;
             else if (right)
-                next_state = RIGHT1;
+                next_state = RIGHT_R1;
             else
                 next_state = IDLE;
             end
@@ -131,13 +131,13 @@ always_comb begin
         LEFT_S3: begin
             lights = 6'b111000; // L1 L2 L3 ON
             seven_seg = 8'b001110; //Display "L"
-                next_state = BRAKE;
+                next_state = BRAKE_ON;
             else if (left && right)
-                next_state = HAZ1;
+                next_state = HAZARD_S1;
             else if (left)
-                next_state = LEFT1;
+                next_state = LEFT_S1;
             else if (right)
-                next_state = RIGHT1;
+                next_state = RIGHT_R1;
             else
                 next_state = IDLE;
             end
@@ -162,13 +162,13 @@ always_comb begin
         end
         RIGHT_R3: begin
             if (brake)
-                next_state = BRAKE;
+                next_state = BRAKE_ON;
             else if (left && right)
-                next_state = HAZ1;
+                next_state = HAZARD_S1;
             else if (right)
-                next_state = RIGHT1;
+                next_state = RIGHT_R1;
             else if (left)
-                next_state = LEFT1;
+                next_state = LEFT_S1;
             else
                 next_state = IDLE;
         end
