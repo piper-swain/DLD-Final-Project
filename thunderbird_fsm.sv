@@ -131,6 +131,7 @@ always_comb begin
         LEFT_S3: begin
             lights = 6'b111000; // L1 L2 L3 ON
             seven_seg = 8'b001110; //Display "L"
+            if (brake) //If brake is active, override turn signal and go to BRAKE_ON state
                 next_state = BRAKE_ON;
             else if (left && right)
                 next_state = HAZARD_S1;
