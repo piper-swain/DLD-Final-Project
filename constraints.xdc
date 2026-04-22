@@ -3,7 +3,7 @@
 set_property PACKAGE_PIN L18 [get_ports sysclk_125mhz]
 set_property IOSTANDARD LVCMOS33 [get_ports sysclk_125mhz]
 
-## LEDs [LED7 : LED0]
+## LEDs [LED5 : LED0]
 #   L3  L2  L1  R1  R2  R3
 #
 set_property PACKAGE_PIN Y9  [get_ports {led[0]}]; # R3
@@ -44,8 +44,8 @@ set_property PACKAGE_PIN H19 [get_ports {ssegout[7]}]; # a
 set_property IOSTANDARD LVCMOS33 [get_ports {ssegout[*]}]
 
 ## Hazard Switch
-set_property PACKAGE_PIN SD [get_ports hazard_switch]
-set_property IOSTANDARD LVCMOS33 [get_ports hazard_switch]
+set_property PACKAGE_PIN SD [get_ports haz_sw]
+set_property IOSTANDARD LVCMOS33 [get_ports haz_sw]
 
 
 
