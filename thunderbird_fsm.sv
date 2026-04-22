@@ -61,8 +61,6 @@ always_comb begin
         end
         
         BRAKE_ON: begin  //All lights ON 
-            lights = 6'b111111; // L1 L2 L3 R1 R2 R3 ON
-            seven_seg = 8'b00000000; //Display "b" for brake (all segments ON)
             if (brake)
                 next_state = BRAKE_ON; //Stay in BRAKE_ON state as long as brake is active
             else if (left && right)
@@ -76,8 +74,6 @@ always_comb begin
             end
 
         HAZARD_S1: begin  //L1 R1 ON
-            lights = 6'b100100; // L1 R1 ON
-            seven_seg = 8'b0110111; //Display "H" for hazard
             //stay in hazard as long as hazard is active, if brake is pressed, go to brake
             if (brake) //If brake is active, override hazard and go to BRAKE_ON state
                 next_state = BRAKE_ON;
@@ -86,8 +82,6 @@ always_comb begin
         end
 
         HAZARD_S2: begin  //L1 R1 L2 R2 ON
-            lights = 6'b110110; // L1 L2 R1 R2 ON
-            seven_seg = 8'b0110111; //Display "H" for hazard
             if (brake) //If brake is active, override hazard and go to BRAKE_ON state
                 next_state = BRAKE_ON;
             else
@@ -95,8 +89,6 @@ always_comb begin
         end
 
         HAZARD_S3: begin  //L1 R1 L2 R2 L3 R3 ON
-            lights = 6'b111111; // L1 L2 L3 R1 R2 R3 ON
-            seven_seg = 8'b0110111; //Display "H" for hazard
             if (brake)
                 next_state = BRAKE_ON;
             else if (left && right)
@@ -112,16 +104,13 @@ always_comb begin
         // Left turn signal sequence
         // on each clock signal, L1 lights up, then L2, then L3, then back to IDLE and repeats as long as left is active
         LEFT_S1: begin
-            lights = 6'b100000; // L1 ON
-            seven_seg = 8'b001110; //Display "L"
             if (brake) //If brake is active, override turn signal and go to BRAKE_ON state
                 next_state = BRAKE_ON;
             else
                 next_state = LEFT_S2;
         end
+
         LEFT_S2: begin
-            lights = 6'b110000; // L1 L2 ON
-            seven_seg = 8'b001110; //Display "L"
             if (brake) //If brake is active, override turn signal and go to BRAKE_ON state
                 next_state = BRAKE_ON;
             else
@@ -129,8 +118,6 @@ always_comb begin
         end
 
         LEFT_S3: begin
-            lights = 6'b111000; // L1 L2 L3 ON
-            seven_seg = 8'b001110; //Display "L"
             if (brake) //If brake is active, override turn signal and go to BRAKE_ON state
                 next_state = BRAKE_ON;
             else if (left && right)
@@ -146,16 +133,12 @@ always_comb begin
         // Right turn signal sequence
         // on each clock signal, R1 lights up, then R2, then R3, then back to IDLE and repeats as long as right is active
         RIGHT_R1: begin
-            lights = 6'b000100; // R1 ON
-            seven_seg = 8'b000111; //Display "r"
             if (brake) //If brake is active, override turn signal and go to BRAKE_ON state
                 next_state = BRAKE_ON;
             else
                 next_state = RIGHT_R2;
         end
         RIGHT_R2: begin
-            lights = 6'b000110; // R1 R2 ON
-            seven_seg = 8'b000111; //Display "r"
             if (brake) //If brake is active, override turn signal and go to BRAKE_ON state
                 next_state = BRAKE_ON;
             else
@@ -175,6 +158,75 @@ always_comb begin
         end
 
         default: next_state = IDLE;
+    endcase
+end
+
+//Output Logic
+always_comb begin
+    lights = 6'b000000; //Default all lights OFF
+    seven_seg = 8'b11111111; //Default all segments OFF (active LOW
+
+    case (state)
+        IDLE: begin
+            seven_seg = 8'b11111111; //All segments OFF
+            lights = 6'b000000; //All lights OFF
+        end
+
+        BRAKE_ON: begin
+            seven_seg = 8'b00000000; //Display 'b' for brake (active LOW)
+            lights = 6'b111111; //All lights ON
+        end
+
+        HAZARD_S1: begin
+            seven_seg = 8'b0000110; //Display 'H' for hazard (active LOW)
+            lights = 6'b100001; //L1 R1 ON
+        end
+
+        HAZARD_S2: begin
+            seven_seg = 8'b0000110; //Display 'H' for hazard (active LOW)
+            lights = 6'b110110; // L1 L2 R1 R2 ON
+        end
+
+        HAZARD_S3: begin
+            seven_seg = 8'b0000110; //Display 'H' for hazard (active LOW)
+            lights = 6'b111111; //All lights ON
+        end
+
+        LEFT_S1: begin
+            seven_seg = 8'b0000110; //Display 'L' for left turn (active LOW)
+            lights = 6'b001000; //L1 ON
+        end
+
+        LEFT_S2: begin
+            seven_seg = 8'b0000110; //Display 'L' for left turn (active LOW)
+            lights = 6'b011000; //L1 L2 ON
+        end
+
+        LEFT_S3: begin
+            seven_seg = 8'b0000110; //Display 'L' for left turn (active LOW)
+            lights = 6'b111000; //L1 L2 L3 ON
+        end
+
+        RIGHT_R1: begin
+            seven_seg = 8'b0001110; //Display 'r' for right turn (active LOW)
+            lights = 6'b000001; //R1 ON
+        end
+
+        RIGHT_R2: begin
+            seven_seg = 8'b0001110; //Display 'r' for right turn (active LOW)
+            lights = 6'b000011; //R1 R2 ON
+        end
+
+        RIGHT_R3: begin
+            seven_seg = 8'b0001110; //Display 'r' for right turn (active LOW)
+            lights = 6'b000111; //R1 R2 R3 ON
+        end
+
+        default: begin
+            seven_seg = 8'b11111111; //All segments OFF
+            lights = 6'b000000; //All lights OFF
+        end
+
     endcase
 end
 
