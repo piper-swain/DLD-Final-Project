@@ -2,12 +2,12 @@
 
 module tb;
 
-    logic clk,
-    logic reset,   //all lights OFF
-    logic left,    //Activates left turn signal (flashing L1, L2, L3 as a wave)
-    logic right,   //Activates right turn signal (flashing R1, R2, R3 as a wave)
-    logic brake,   //Activates brake lights (all lights ON)
-    logic hazard   //Activates hazard lights (all lights ON and flashing)
+    logic clk;
+    logic reset;   //all lights OFF
+    logic left;    //Activates left turn signal (flashing L1, L2, L3 as a wave)
+    logic right;   //Activates right turn signal (flashing R1, R2, R3 as a wave)
+    logic brake;   //Activates brake lights (all lights ON)
+    logic hazard;   //Activates hazard lights (all lights ON and flashing)
 
     // Instantiate the DUT (Device Under Test)
 thunderbird_fsm dut (

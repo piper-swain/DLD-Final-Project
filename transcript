@@ -1,0 +1,31 @@
+# do thunderbird_fsm.do
+# Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+# Start time: 16:00:49 on Apr 22,2026
+# vlog thunderbird_fsm.sv tb_thunderbird.sv 
+# -- Compiling module thunderbird_fsm
+# ** Error (suppressible): thunderbird_fsm.sv(48): (vlog-2997) Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(49): (vlog-2997) Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(64): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(65): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(71): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(72): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(83): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(84): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(88): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(89): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(93): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(94): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(101): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(102): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(106): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(107): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(111): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[5:0]' to an unpacked type 'reg $[5:0]'.
+# ** Error (suppressible): thunderbird_fsm.sv(112): (vlog-2997) Case item comparison:  Cannot assign a packed type 'bit[7:0]' to an unpacked type 'reg $[7:0]'.
+# -- Compiling module tb
+# End time: 16:00:49 on Apr 22,2026, Elapsed time: 0:00:00
+# Errors: 18, Warnings: 0
+# ** Error: C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./thunderbird_fsm.do line 27
+# C:/intelFPGA/20.1/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog thunderbird_fsm.sv tb_thunderbird.sv"
