@@ -42,14 +42,3 @@ set_property PACKAGE_PIN H17 [get_ports {ssegout[6]}]; # b
 set_property PACKAGE_PIN H19 [get_ports {ssegout[7]}]; # a
 set_property IOSTANDARD LVCMOS33 [get_ports {ssegout[*]}]
 
-## Hazard Switch
-set_property PACKAGE_PIN SD [get_ports haz_sw]
-set_property IOSTANDARD LVCMOS33 [get_ports haz_sw]
-
-
-
-
-
-
-
-
