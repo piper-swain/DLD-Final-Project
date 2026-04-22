@@ -6,8 +6,8 @@ input logic right,   //Activates right turn signal (flashing R1, R2, R3 as a wav
 input logic brake,   //Activates brake lights (all lights ON)
 input logic hazard,   //Activates hazard lights (all lights ON and flashing)
 
-output logic lights[5:0], //lights[5:0] = [L3 L2 L1 R1 R2 R3]
-output logic seven_seg[7:0] 
+output logic [5:0] lights, //lights[5:0] = [L3 L2 L1 R1 R2 R3]
+output logic [7:0] seven_seg 
 //seven_seg[7:0] = [a b c d e f g dp]
 );
 
