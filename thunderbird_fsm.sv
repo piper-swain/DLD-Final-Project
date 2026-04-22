@@ -45,8 +45,6 @@ state_t current_state, next_state;
 always_comb begin
     //Default values / idle
     next_state = current_state; //Default to stay in the same state
-    seven_seg = 8'b11111111; //All segments OFF (active LOW)
-    lights = 6'b000000; //All lights OFF
 
     case (current_state)  //State transition logic based on input signals
         IDLE: begin   //From IDLE, check inputs in order of priority: brake > hazard > left > right
@@ -166,7 +164,7 @@ always_comb begin
     lights = 6'b000000; //Default all lights OFF
     seven_seg = 8'b11111111; //Default all segments OFF (active LOW
 
-    case (state)
+    case (current_state)
         IDLE: begin
             seven_seg = 8'b11111111; //All segments OFF
             lights = 6'b000000; //All lights OFF
