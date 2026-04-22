@@ -27,8 +27,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports {btn[*]}]
 ## Seven Segment Display
 #   Bus order: ssegout[7:0] = [a b c d e f g dp]
 #
-set_property PACKAGE_PIN J20 [get_ports {sseg_an[3]}];     
-set_property PACKAGE_PIN J18 [get_ports {sseg_an[2]}];
+set_property PACKAGE_PIN J20 [get_ports {sseg_an[3]}];
+set_property PACKAGE_PIN J18 [get_ports {sseg_an[2]}]
 set_property PACKAGE_PIN H20 [get_ports {sseg_an[1]}];
 set_property PACKAGE_PIN K19 [get_ports {sseg_an[0]}];
 set_property IOSTANDARD LVCMOS33 [get_ports {sseg_an[*]}]
