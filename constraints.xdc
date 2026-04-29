@@ -17,8 +17,8 @@ set_property IOSTANDARD LVCMOS33 [get_ports {led[*]}]
 ## Push Buttons [B3 : B0]
 #   B3  B2  B1  B0
 #
-set_property PACKAGE_PIN U12 [get_ports {btn[0]}]; # Left Turn Signal
-set_property PACKAGE_PIN V12 [get_ports {btn[1]}]; # Right Turn Signal
+set_property PACKAGE_PIN V12 [get_ports {btn[0]}]; # Right Turn Signal
+set_property PACKAGE_PIN U12 [get_ports {btn[1]}]; # Left Turn Signal
 set_property PACKAGE_PIN U7 [get_ports {btn[2]}]; # Brake
 set_property PACKAGE_PIN Y6 [get_ports {btn[3]}]; # Reset
 set_property IOSTANDARD LVCMOS33 [get_ports {btn[*]}]
@@ -41,4 +41,13 @@ set_property PACKAGE_PIN K18 [get_ports {ssegout[5]}]; # c
 set_property PACKAGE_PIN H17 [get_ports {ssegout[6]}]; # b
 set_property PACKAGE_PIN H19 [get_ports {ssegout[7]}]; # a
 set_property IOSTANDARD LVCMOS33 [get_ports {ssegout[*]}]
+
+
+
+
+
+
+
+
+
 

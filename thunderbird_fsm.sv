@@ -171,53 +171,53 @@ always_comb begin
         end
 
         BRAKE_ON: begin
-            seven_seg = 8'b00000000; //Display 'b' for brake (active LOW)
+            seven_seg = 8'b11000001; //Display 'b' for brake (active LOW)
             lights = 6'b111111; //All lights ON
         end
 
         HAZARD_S1: begin
-            seven_seg = 8'b0000110; //Display 'H' for hazard (active LOW)
-            lights = 6'b100001; //L1 R1 ON
+            seven_seg = 8'b10010001; //Display 'H' for hazard (active LOW)
+            lights = 6'b001100; //L1 R1 ON
         end
 
         HAZARD_S2: begin
-            seven_seg = 8'b0000110; //Display 'H' for hazard (active LOW)
-            lights = 6'b110110; // L1 L2 R1 R2 ON
+            seven_seg = 8'b10010001; //Display 'H' for hazard (active LOW)
+            lights = 6'b011110; // L1 L2 R1 R2 ON
         end
 
         HAZARD_S3: begin
-            seven_seg = 8'b0000110; //Display 'H' for hazard (active LOW)
+            seven_seg = 8'b10010001; //Display 'H' for hazard (active LOW)
             lights = 6'b111111; //All lights ON
         end
 
         LEFT_S1: begin
-            seven_seg = 8'b0000110; //Display 'L' for left turn (active LOW)
+            seven_seg = 8'b11100011; //Display 'L' for left turn (active LOW)
             lights = 6'b001000; //L1 ON
         end
 
         LEFT_S2: begin
-            seven_seg = 8'b0000110; //Display 'L' for left turn (active LOW)
+            seven_seg = 8'b11100011; //Display 'L' for left turn (active LOW)
             lights = 6'b011000; //L1 L2 ON
         end
 
         LEFT_S3: begin
-            seven_seg = 8'b0000110; //Display 'L' for left turn (active LOW)
+            seven_seg = 8'b11100011; //Display 'L' for left turn (active LOW)
             lights = 6'b111000; //L1 L2 L3 ON
         end
 
         RIGHT_R1: begin
-            seven_seg = 8'b0001110; //Display 'r' for right turn (active LOW)
-            lights = 6'b000001; //R1 ON
+            seven_seg = 8'b11110101; //Display 'r' for right turn (active LOW)
+            lights = 6'b000100; //R1 ON
         end
 
         RIGHT_R2: begin
-            seven_seg = 8'b0001110; //Display 'r' for right turn (active LOW)
-            lights = 6'b000011; //R1 R2 ON
+            seven_seg = 8'b11110101; //Display 'r' for right turn (active LOW)
+            lights = 6'b000110; //R1 R2 ON
         end
 
         RIGHT_R3: begin
-            seven_seg = 8'b0001110; //Display 'r' for right turn (active LOW)
-            lights = 6'b000111; //R1 R2 R3 ON
+            seven_seg = 8'b11110101; //Display 'r' for right turn (active LOW)
+            lights = 6'b000111; //R1 R2 R3 ON  
         end
 
         default: begin
