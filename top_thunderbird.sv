@@ -50,6 +50,6 @@ module top (
     assign ssegout = seven_seg;
 
     // Enable only one 7-seg digit (active low)
-    assign sseg_an = 4'b1110;
+    assign sseg_an = 4'b1110;  
 
 endmodule

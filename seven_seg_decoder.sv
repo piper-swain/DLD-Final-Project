@@ -27,6 +27,6 @@ module sevenseg_hex (
     always_comb begin
         ssegout[7:1] = seg;
         ssegout[0]   = 1'b1; // decimal point OFF
-    end
+    end 
 
 endmodule
