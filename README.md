@@ -13,7 +13,7 @@ work together to produce controlled and time-dependent behavior.
 * The FPGA's seven segment display (SSD) shows a letter representation that corresponds to each state. (ex: SSD should show "L" when the left turn signal is pressed)
 
 ## Description
-Design tailights for the Thunderbird
+(in progress)
 
 ## Authors
 Piper Swain  &  Aidan Guarnera
