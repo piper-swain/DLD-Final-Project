@@ -1,4 +1,4 @@
-# Simulating Vehicle Tailight Behavior
+# Simulating Vehicle Tail Light Behavior
 **Fundamentals of Digital Logic Design  - Final Project**
 
 This repository acts as the project portion of the final for Oklahoma State University's Fundamentals of Digital Logic Design course. The project uses a Moore-type Finite State Machine to control the tailights of a Ford Thunderbird. Brake, hazard, left turn signal, right turn signal, and reset are simulated.
