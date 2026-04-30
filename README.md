@@ -22,6 +22,11 @@ work together to produce controlled and time-dependent behavior.
 Each side of the vehicle contains three LEDs, each of which have their own state in the FSM.
 * Left side: L1, L2, L3
 * Right side: R1, R2, R3
+On the vehicle, the taillights are placed as so:
+
+|       |       |       |       |       |       |
+|-------|-------|-------|-------|-------|-------|
+| L3  | L2  | L1  | R1  | R2  | R3  |
 
 
 ### Inputs
@@ -67,6 +72,33 @@ Inputs below are listed in order of priority (top priority is listed first) and 
 * When brake = 1:
 * All lights ON simultaneously
 * Overrides all other modes
+
+## FSM Design
+* Type: Moore FSM
+* Outputs depend only on current state, not previous inputs
+* Each state represents a different step in the light sequence
+* State transitions coincide with the rising edge of the clock
+
+## Clock Divider
+The FPGA clock is divided using a clock divider module to slow down state transitions so that:
+* Light sequences are visible to the human eye
+* Transitions appear smooth and realistic
+
+## 7-Segment Display
+Displays current system mode:
+| Mode   | Display |
+| ------ | ------- |
+| Idle   | OFF     |
+| Left Turn Signal   | L       |
+| Right Turn Signal | r       |
+| Hazard (L and R turn signals are activated)| H       |
+| Brake  | b       |
+
+## Simulation and Verification
+* Simulated in ModelSim
+* Verified using a comprehensive testbench
+* Waveforms checked for correct state transitions, timing accuracy, output sequencing, and priority enforcement
+<img width="3839" height="1807" alt="image" src="https://github.com/user-attachments/assets/3f709863-cd2e-44fe-a996-c7961222f36e" />
 
 
 ## Authors
