@@ -1,7 +1,7 @@
 # Simulating Vehicle Taillight Behavior
 **Fundamentals of Digital Logic Design  - Final Project**
 
-This repository acts as the project portion of the final for Oklahoma State University's Fundamentals of Digital Logic Design course.
+This repository acts as the project portion of the final for our Fundamentals of Digital Logic Design course.
 
 ## Overview
 This project implements a Finite State Machine (FSM) to control the taillights of a simulated Ford Thunderbird vehicle on an FPGA platform. The design demonstrates the interaction between sequential logic (state memory) and combinational logic (output generation) to create realistic, time-dependent automotive lighting behavior.
