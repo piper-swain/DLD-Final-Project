@@ -45,39 +45,22 @@ Inputs below are listed in order of priority (top priority is listed first) and 
 ### Priority Handling
 * Brake -> Hazard -> Turn Signals (left/right)
 
-### Reset Mode
-* When reset = 1
-* All lights OFF
-* FSM returns to IDLE state
-
-
-### Left Turn Signal
-* When left = 1:
-* L1 → L1 + L2 → L1 + L2 + L3
-* Sequence repeats continuously if left remains active
-
-
-### Right Turn Signal
-* When right = 1:
-* R1 → R1 + R2 → R1 + R2 + R3
-* Sequence repeats continuously while active
-
-### Hazard Mode
-* When left = 1 AND right = 1:
-* L1 + R1 → L1 + L2 + R1 + R2 → L1 + L2 + L3 + R1 + R2 + R3
-* Continuous repeating pattern
-* Simulates emergency hazard lights
-
-### Brake Mode
-* When brake = 1:
-* All lights ON simultaneously
-* Overrides all other modes
+### Mode Descriptions
+|Mode: |  Reset   |  Left Turn   |   Right Turn    |    Hazard   |   Brake    |
+|----------|--------------|-----------------|-------------|------------|------------|
+| | When reset = 1:  | When left = 1:  | When Right = 1:  | When left = 1 AND right = 1:  | When brake = 1:  |
+| |All lights OFF|L1 → L1 + L2 → L1 + L2 + L3|R1 → R1 + R2 → R1 + R2 + R3|L1 + R1 → L1 + L2 + R1 + R2 → L1 + L2 + L3 + R1 + R2 + R3|All lights ON simultaneously|
+| |FSM returns to IDLE state|Sequence repeats continuously if left remains active|Sequence repeats continuously if right remains active |Continuous repeating pattern|All lights ON simultaneously|
 
 ## FSM Design
 * Type: Moore FSM
 * Outputs depend only on current state, not previous inputs
 * Each state represents a different step in the light sequence
 * State transitions coincide with the rising edge of the clock
+
+### State Flow Chart
+<img src="https://github.com/user-attachments/assets/666b2775-22b1-4d29-b3f3-88f1214ebd81" width="500">
+
 
 ## Clock Divider
 The FPGA clock is divided using a clock divider module to slow down state transitions so that:
@@ -98,8 +81,16 @@ Displays current system mode:
 * Simulated in ModelSim
 * Verified using a comprehensive testbench
 * Waveforms checked for correct state transitions, timing accuracy, output sequencing, and priority enforcement
-<img width="3839" height="1807" alt="image" src="https://github.com/user-attachments/assets/3f709863-cd2e-44fe-a996-c7961222f36e" />
+#### ModelSim Waveform:
+<img src="https://github.com/user-attachments/assets/3f709863-cd2e-44fe-a996-c7961222f36e" width="800">
 
+## FPGA Implementation
+Implemented on FPGA using:
+* Push buttons → inputs (left, right, brake, reset)
+* LEDs → taillight outputs
+* 7-segment display → mode indicator
+All signals are mapped using a constraints file for hardware compatibility.
+https://drive.google.com/uc?id=1ogENYczUw4uxAWGKz64f0bf19nVe9ikW&export=download
 
 ## Authors
 Piper Swain  &  Aidan Guarnera
