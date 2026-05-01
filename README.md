@@ -1,4 +1,4 @@
-# Simulating Vehicle Taillights Behavior
+# Simulating Vehicle Taillight Behavior
 **Fundamentals of Digital Logic Design  - Final Project**
 
 This repository acts as the project portion of the final for Oklahoma State University's Fundamentals of Digital Logic Design course.
@@ -22,11 +22,10 @@ work together to produce controlled and time-dependent behavior.
 Each side of the vehicle contains three LEDs, each of which have their own state in the FSM.
 * Left side: L1, L2, L3
 * Right side: R1, R2, R3
+
 On the vehicle, the taillights are placed as so:
 
-|       |       |       |       |       |       |
-|-------|-------|-------|-------|-------|-------|
-| L3  | L2  | L1  | R1  | R2  | R3  |
+| L3 | L2 | L1 | R1 | R2 | R3 |
 
 
 ### Inputs
@@ -90,7 +89,10 @@ Implemented on FPGA using:
 * LEDs → taillight outputs
 * 7-segment display → mode indicator
 All signals are mapped using a constraints file for hardware compatibility.
-https://drive.google.com/uc?id=1ogENYczUw4uxAWGKz64f0bf19nVe9ikW&export=download
+
+
+https://github.com/user-attachments/assets/a71ec2f5-4c70-4fdd-8f75-bb4ae49a63bb
+
 
 ## Authors
 Piper Swain  &  Aidan Guarnera
