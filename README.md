@@ -10,9 +10,9 @@ taillights of a Ford Thunderbird.
 * Simulate realistic automotive lighting behavior using digital logic on an FPGA platform.
 * Demonstrate how sequential logic (memory elements) and combinational logic
 work together to produce controlled and time-dependent behavior.
-* Brake, hazard, left turn signal, right turn signal, and reset are simulated using LEDs and buttons
-* Priority handling is demonstrated as follows: reset -> brake -> hazard -> turn signals
-* The FSM controls lighting patterns based on driver inputs and displays the current operating mode on a 7-segment display
+* Brake, hazard, left turn signal, right turn signal, and reset are simulated using LEDs and push buttons.
+* Priority handling is demonstrated as follows: reset -> brake -> hazard -> turn signals.
+* The FSM controls lighting patterns based on driver inputs and displays the current operating mode on a 7-segment display.
 
 ## Input/Output Description
 ### Taillight Layout
