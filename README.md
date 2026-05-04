@@ -15,16 +15,6 @@ work together to produce controlled and time-dependent behavior.
 * The FSM controls lighting patterns based on driver inputs and displays the current operating mode on a 7-segment display.
 
 ## Input/Output Description
-### Taillight Layout
-
-Each side of the vehicle contains three LEDs, each of which have their own state in the FSM.
-* Left side: L1, L2, L3
-* Right side: R1, R2, R3
-
-On the vehicle, the taillights are placed as so:
-
-| L3 | L2 | L1 | R1 | R2 | R3 |
-
 
 ### Inputs
 Inputs below are listed in order of priority (top priority is listed first) and represented as push buttons on the FPGA platform.
@@ -38,12 +28,23 @@ Inputs below are listed in order of priority (top priority is listed first) and 
 * lights[5:0] → controls all six taillights
 * 7-segment display → shows current mode
 
+
+### Taillight Layout
+
+Each side of the vehicle contains three LEDs, each of which have their own state in the FSM.
+* Left side: L1, L2, L3
+* Right side: R1, R2, R3
+
+On the vehicle, the taillights are placed as so:
+
+| L3 | L2 | L1 | R1 | R2 | R3 |
+
 ## System Behavior
 ### Priority Handling
-* Brake -> Hazard -> Turn Signals (left/right)
+* Reset → Brake → Hazard → Turn Signals (left/right)
 
 ### Mode Descriptions
-|Mode: |  Reset   |  Left Turn   |   Right Turn    |    Hazard   |   Brake    |
+|Mode → |  Reset   |  Left Turn   |   Right Turn    |    Hazard   |   Brake    |
 |----------|--------------|-----------------|-------------|------------|------------|
 | | When reset = 1:  | When left = 1:  | When Right = 1:  | When left = 1 AND right = 1:  | When brake = 1:  |
 | |All lights OFF|L1 → L1 + L2 → L1 + L2 + L3|R1 → R1 + R2 → R1 + R2 + R3|L1 + R1 → L1 + L2 + R1 + R2 → L1 + L2 + L3 + R1 + R2 + R3|All lights ON simultaneously|
