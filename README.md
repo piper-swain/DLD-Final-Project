@@ -11,7 +11,7 @@ taillights of a Ford Thunderbird.
 * Demonstrate how sequential logic (memory elements) and combinational logic
 work together to produce controlled and time-dependent behavior.
 * Brake, hazard, left turn signal, right turn signal, and reset are simulated using LEDs and push buttons.
-* Priority handling is demonstrated as follows: reset -> brake -> hazard -> turn signals.
+* Priority handling is demonstrated as follows: reset → brake → hazard → turn signals.
 * The FSM controls lighting patterns based on driver inputs and displays the current operating mode on a 7-segment display.
 
 ## Input/Output Description
@@ -27,7 +27,7 @@ On the vehicle, the taillights are placed as so:
 
 
 ### Inputs
-Inputs below are listed in order of priority (top priority is listed first) and represented as buttons on the FPGA platform.
+Inputs below are listed in order of priority (top priority is listed first) and represented as push buttons on the FPGA platform.
 * reset → Resets system (all lights OFF, returns to IDLE)
 * left → Activates left turn signal
 * right → Activates right turn signal
