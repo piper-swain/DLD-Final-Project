@@ -46,9 +46,9 @@ On the vehicle, the taillights are placed as so:
 ### Mode Descriptions
 |Mode → |  Reset   |  Left Turn   |   Right Turn    |    Hazard   |   Brake    |
 |----------|--------------|-----------------|-------------|------------|------------|
-| | When reset = 1:  | When left = 1:  | When Right = 1:  | When left = 1 AND right = 1:  | When brake = 1:  |
-| |All lights OFF|L1 → L1 + L2 → L1 + L2 + L3|R1 → R1 + R2 → R1 + R2 + R3|L1 + R1 → L1 + L2 + R1 + R2 → L1 + L2 + L3 + R1 + R2 + R3|All lights ON simultaneously|
-| |FSM returns to IDLE state|Sequence repeats continuously if left remains active|Sequence repeats continuously if right remains active |Continuous repeating pattern|All lights ON simultaneously|
+| Occurs when: | reset = 1  | left = 1  | right = 1  | left AND right = 1  | brake = 1  |
+| Lighting Behavior: |All lights OFF|L1 → L1 + L2 → L1 + L2 + L3|R1 → R1 + R2 → R1 + R2 + R3|L1 + R1 → L1 + L2 + R1 + R2 → L1 + L2 + L3 + R1 + R2 + R3|All lights ON simultaneously|
+| Current Behavior: |FSM is in IDLE state|The above state sequence repeats continuously while left remains active|The above state sequence repeats continuously while right remains active |The above state sequence continues while right and left remain active| FSM is in BRAKE state|
 
 ## FSM Design
 * Type: Moore FSM
