@@ -87,6 +87,7 @@ Implemented on FPGA using:
 * Push buttons → inputs (left, right, brake, reset)
 * LEDs → taillight outputs
 * 7-segment display → mode indicator
+
 All signals are mapped using a constraints file for hardware compatibility.
 
 
